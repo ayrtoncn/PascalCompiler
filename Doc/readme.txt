@@ -1,0 +1,1 @@
+isi pascal code pada pascalcode.txt setelah itu jalankan program mainnya

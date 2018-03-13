@@ -1,0 +1,26 @@
+program test ;
+var
+    ini,itu,i,j : integer;
+    itu:array[1..4] of real;
+begin
+    ini :=5;
+    if ((ini * 5 + 10) and (itu mod 4 - 100))then
+    begin
+        for i:=1 to 5 step 4 do
+        begin
+            ini := ini*4;
+        end;
+        for i:=10 downto 5 do
+        begin
+            i:=itu mod 5;
+        end;
+
+        i:=4;
+        while i<=4 do
+        begin   j:=5;
+            repeat
+                j:=j-1;
+            until j =0;
+        end;
+    end;
+end.

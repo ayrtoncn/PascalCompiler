@@ -1,0 +1,70 @@
+START -> P S ; var VAR begin M end .
+
+P -> program
+
+VAR -> VARNAME : TYPE ; VAR
+VAR -> ''
+VARNAME -> S
+VARNAME -> S , VARNAME
+
+M -> S := EXPR ; M
+M -> IFTH M
+M -> RU M
+M -> WD M
+M -> FT M
+M -> IO M
+M -> ''
+
+TYPE -> TYPEM
+TYPE -> array SIZE of TYPEARR
+
+TYPEARR -> TYPEM
+TYPEARR -> array SIZE of TYPEM
+
+TYPEM -> real
+TYPEM -> integer
+TYPEM -> char
+
+SIZE-> [ S .. S ]
+
+S -> alfanumeric 
+
+EXPR -> EXPR_A EXPR_F
+
+EXPR_F -> OP EXPR_A EXPR_F
+EXPR_F -> ''
+
+EXPR_A -> ( EXPR_A OP EXPR )
+EXPR_A -> S
+
+
+OP -> +
+OP -> -
+OP -> *
+OP -> div
+OP -> mod
+OP -> and
+OP -> or
+OP -> >
+OP -> >=
+OP -> <=
+OP -> <
+OP -> =
+OP -> <>
+
+IFTH -> if EXPR then begin M end ;
+IFTH -> if EXPR then begin M end else begin M end ;
+IFTH -> if EXPR else IFTH
+
+RU -> repeat M until  EXPR  ;
+
+WD -> while EXPR  do begin M end ;
+
+
+FT -> for S := S to S step S do begin M end ;
+FT -> for S := S to S do begin M end ;
+FT -> for S := S downto S step S do begin M end ;
+FT -> for S := S downto S do begin M end ;
+
+IO -> input ( EXPR ) ;
+IO -> output ( EXPR ) ;
